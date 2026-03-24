@@ -186,7 +186,7 @@
             text-align: center;
             padding: 0 5%;
             overflow: hidden;
-            margin-top: 70px; /* Offset for nav */
+            margin-top: 70px;
         }
 
         .hero-bg {
@@ -202,7 +202,6 @@
             z-index: 1;
         }
 
-        /* Enhanced Hero Overlay for depth */
         .hero-overlay {
             position: absolute;
             top: 0;
@@ -216,13 +215,13 @@
         .hero-content {
             position: relative;
             z-index: 3;
-            max-width: 850px;
+            max-width: 950px;
             color: white;
             animation: fadeIn 1s ease-out forwards;
         }
 
         .hero h1 {
-            font-size: 4.5rem;
+            font-size: 4rem;
             color: white;
             margin-bottom: 1.5rem;
             line-height: 1.1;
@@ -330,6 +329,36 @@
             text-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
 
+        /* Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            background-color: #E6D5C3;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
         /* How It Works Section */
         .bg-light-alt {
             background-color: #F4EFE9;
@@ -412,7 +441,6 @@
             color: rgba(255,255,255,0.7);
         }
 
-        /* Next Session Banner */
         .session-banner {
             background: linear-gradient(135deg, var(--accent), var(--accent-hover));
             color: white;
@@ -485,7 +513,6 @@
             flex-direction: column;
         }
 
-        /* Scarcity Tag */
         .scarcity-tag {
             display: inline-flex;
             align-items: center;
@@ -641,7 +668,7 @@
             color: var(--text-muted);
         }
 
-        /* Locations Section */
+        /* Locations & Maps Section */
         .locations-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -676,24 +703,27 @@
             margin-bottom: 0.8rem;
         }
 
-        .map-placeholder {
+        .maps-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
             max-width: 1050px;
             margin: 0 auto;
-            height: 400px;
-            background: #EAE5DE;
-            border-radius: 16px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-muted);
-            border: 2px dashed #C8BCAF;
         }
 
-        .map-placeholder i {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            color: #C8BCAF;
+        .map-iframe-wrapper {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            height: 350px;
+            background: #EAE5DE;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .map-iframe-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
         }
 
         /* CTA Section */
@@ -707,10 +737,18 @@
         .cta-section h2 {
             color: white;
             font-size: 3.5rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
 
-        .cta-section p {
+        .urgency-text {
+            color: #FBBF24;
+            font-weight: 500;
+            font-size: 1.15rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.5px;
+        }
+
+        .cta-section p.cta-desc {
             font-size: 1.25rem;
             margin-bottom: 3rem;
             color: rgba(255,255,255,0.85);
@@ -802,7 +840,7 @@
 
         /* Responsive */
         @media (max-width: 992px) {
-            .hero h1 { font-size: 3.5rem; }
+            .hero h1 { font-size: 3.2rem; }
             .about-grid { grid-template-columns: 1fr; gap: 3rem; }
             .about-image-inner { height: 400px; }
             .section-title { font-size: 2.4rem; }
@@ -823,15 +861,16 @@
             .nav-links.active { display: flex; }
             .mobile-menu-btn { display: block; }
             
-            .hero h1 { font-size: 2.8rem; }
+            .hero h1 { font-size: 2.5rem; }
             .hero-btns { flex-direction: column; width: 100%; align-items: center; }
             .hero-btns .btn { width: 100%; max-width: 300px; }
             
-            .locations-grid { grid-template-columns: 1fr; }
+            .locations-grid, .maps-container { grid-template-columns: 1fr; }
             .cta-section h2 { font-size: 2.4rem; }
             
             .session-banner { font-size: 0.95rem; padding: 12px 20px; flex-direction: column; gap: 5px; }
             .footer-info { gap: 1.5rem; flex-direction: column; }
+            .gallery-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -841,6 +880,7 @@
         <a href="#" class="logo">tāttv</a>
         <div class="nav-links" id="navLinks">
             <a href="#about" onclick="toggleMenu()">About</a>
+            <a href="#gallery" onclick="toggleMenu()">Gallery</a>
             <a href="#how-it-works" onclick="toggleMenu()">How it Works</a>
             <a href="#workshops" onclick="toggleMenu()">Workshops</a>
             <a href="#locations" onclick="toggleMenu()">Locations</a>
@@ -857,8 +897,8 @@
                 <i class="fas fa-star"></i>
                 Rated 4.8 by 250+ people in Bhopal
             </div>
-            <h1>Where Art Meets Experience</h1>
-            <p>Workshops, pottery, painting & café — all in one creative space designed to spark your imagination.</p>
+            <h1>Bhopal’s Creative Café Where You Don’t Just Visit — You Create</h1>
+            <p>Pottery, painting, workshops & a peaceful library space — all in one creative destination.</p>
             <div class="hero-btns">
                 <a href="#workshops" class="btn btn-primary">Explore Workshops</a>
                 <div class="hero-cta-wrapper">
@@ -885,6 +925,20 @@
                     <h3>Vibrant Community Jam Sessions</h3>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section id="gallery">
+        <h2 class="section-title">Real Moments at Tattv</h2>
+        <p class="section-subtitle">A glimpse into the creative experiences at our cafe.</p>
+        
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="images/gallery1.jpg" alt="Tattv Cafe Moment 1"></div>
+            <div class="gallery-item"><img src="images/gallery2.jpg" alt="Tattv Cafe Moment 2"></div>
+            <div class="gallery-item"><img src="images/gallery3.jpg" alt="Tattv Cafe Moment 3"></div>
+            <div class="gallery-item"><img src="images/gallery4.jpg" alt="Tattv Cafe Moment 4"></div>
+            <div class="gallery-item"><img src="images/gallery5.jpg" alt="Tattv Cafe Moment 5"></div>
+            <div class="gallery-item"><img src="images/gallery6.jpg" alt="Tattv Cafe Moment 6"></div>
         </div>
     </section>
 
@@ -1082,16 +1136,20 @@
             </div>
         </div>
 
-        <div class="map-placeholder">
-            <i class="fas fa-map"></i>
-            <h3>Interactive Map Area</h3>
-            <p>Google Maps Embed Goes Here</p>
+        <div class="maps-container">
+            <div class="map-iframe-wrapper">
+                <iframe src="https://maps.google.com/maps?q=Tattv%20Art%20Cafe%20Kerwa%20Dam%20Bhopal&t=&z=13&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="map-iframe-wrapper">
+                <iframe src="https://maps.google.com/maps?q=Tattv%20Art%20Cafe%20Lalghati%20Bhopal&t=&z=13&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
         </div>
     </section>
 
     <section class="cta-section">
         <h2>Book Your Workshop Today</h2>
-        <p>Spaces fill up fast due to our limited seating. Reserve your spot via WhatsApp to secure your creative journey.</p>
+        <p class="urgency-text"><i class="fas fa-clock"></i> Workshops usually fill up 2–3 days in advance.</p>
+        <p class="cta-desc">Spaces fill up fast due to our limited seating. Reserve your spot via WhatsApp to secure your creative journey.</p>
         <div class="cta-wrapper">
             <a href="https://wa.me/917880001248?text=Hi,%20I%20want%20to%20book%20a%20workshop%20at%20Tattv%20Art%20Cafe" target="_blank" class="btn btn-whatsapp" style="font-size: 1.25rem; padding: 18px 40px; border-radius: 8px;">
                 <i class="fab fa-whatsapp" style="font-size: 1.6rem;"></i> Reserve Your Seat on WhatsApp
