@@ -19,12 +19,13 @@
             --font-heading: 'Playfair Display', serif;
             --font-body: 'Inter', sans-serif;
             --transition: all 0.3s ease;
+            --scarcity-color: #D97757;
         }
 
         * {
             margin: 0;
             padding: 0;
-            box-sizing: border-width;
+            box-sizing: border-box;
             scroll-behavior: smooth;
         }
 
@@ -43,7 +44,7 @@
 
         .section-title {
             text-align: center;
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 1rem;
             position: relative;
         }
@@ -51,9 +52,9 @@
         .section-subtitle {
             text-align: center;
             color: var(--text-muted);
-            margin-bottom: 3rem;
-            font-size: 1.1rem;
-            max-width: 600px;
+            margin-bottom: 3.5rem;
+            font-size: 1.15rem;
+            max-width: 650px;
             margin-inline: auto;
         }
 
@@ -62,15 +63,16 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 12px 28px;
-            font-size: 1rem;
+            padding: 14px 32px;
+            font-size: 1.05rem;
             font-weight: 500;
             text-decoration: none;
-            border-radius: 4px;
+            border-radius: 6px;
             transition: var(--transition);
             cursor: pointer;
-            gap: 8px;
+            gap: 10px;
             border: none;
+            text-align: center;
         }
 
         .btn-primary {
@@ -81,13 +83,14 @@
         .btn-primary:hover {
             background-color: var(--accent-hover);
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(166, 123, 91, 0.3);
+            box-shadow: 0 6px 15px rgba(166, 123, 91, 0.35);
         }
 
         .btn-outline {
             background-color: transparent;
             color: white;
-            border: 1px solid white;
+            border: 1px solid rgba(255,255,255,0.8);
+            backdrop-filter: blur(4px);
         }
 
         .btn-outline:hover {
@@ -99,12 +102,28 @@
         .btn-whatsapp {
             background-color: #25D366;
             color: white;
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.2);
         }
 
         .btn-whatsapp:hover {
             background-color: #1EBE5D;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(37, 211, 102, 0.4);
+        }
+
+        /* Micro-conversion Text */
+        .micro-text {
+            display: block;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 12px;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+        }
+
+        .micro-text i {
+            margin-right: 4px;
+            color: #FBBF24;
         }
 
         /* Navigation */
@@ -113,28 +132,28 @@
             top: 0;
             width: 100%;
             background: rgba(250, 246, 240, 0.95);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px);
             z-index: 1000;
-            padding: 1rem 5%;
+            padding: 1.2rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 1px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.04);
             box-sizing: border-box;
         }
 
         .logo {
             font-family: var(--font-heading);
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: 700;
             color: var(--primary-dark);
             text-decoration: none;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
         }
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem;
             align-items: center;
         }
 
@@ -152,7 +171,7 @@
 
         .mobile-menu-btn {
             display: none;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             cursor: pointer;
             color: var(--primary-dark);
         }
@@ -167,10 +186,9 @@
             text-align: center;
             padding: 0 5%;
             overflow: hidden;
-            margin-top: 60px;
+            margin-top: 70px; /* Offset for nav */
         }
 
-        /* Crucial Image Treatment to hide text & enhance readability */
         .hero-bg {
             position: absolute;
             top: -20px;
@@ -184,49 +202,54 @@
             z-index: 1;
         }
 
+        /* Enhanced Hero Overlay for depth */
         .hero-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(20, 15, 12, 0.85) 0%, rgba(30, 20, 15, 0.9) 100%);
+            background: radial-gradient(circle at center, rgba(35, 25, 20, 0.75) 0%, rgba(20, 15, 12, 0.95) 100%);
             z-index: 2;
         }
 
         .hero-content {
             position: relative;
             z-index: 3;
-            max-width: 800px;
+            max-width: 850px;
             color: white;
             animation: fadeIn 1s ease-out forwards;
         }
 
         .hero h1 {
-            font-size: 4rem;
+            font-size: 4.5rem;
             color: white;
             margin-bottom: 1.5rem;
             line-height: 1.1;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
         }
 
         .hero p {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
             font-weight: 300;
-            color: #E8E8E8;
+            color: #F0F0F0;
+            max-width: 700px;
+            margin-inline: auto;
         }
 
         .trust-badge {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 8px 16px;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.12);
+            padding: 10px 20px;
             border-radius: 50px;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             margin-bottom: 2.5rem;
-            backdrop-filter: blur(4px);
-            border: 1px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(6px);
+            border: 1px solid rgba(255,255,255,0.25);
+            letter-spacing: 0.5px;
         }
 
         .trust-badge i {
@@ -235,47 +258,55 @@
 
         .hero-btns {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
             justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .hero-cta-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         /* Layout Sections */
         section {
-            padding: 6rem 5%;
+            padding: 7rem 5%;
         }
 
         /* About Section */
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            gap: 5rem;
             align-items: center;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .about-text h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
+            font-size: 2.8rem;
+            margin-bottom: 1.8rem;
+            line-height: 1.2;
         }
 
         .about-text p {
             margin-bottom: 1.5rem;
             color: var(--text-muted);
-            font-size: 1.1rem;
+            font-size: 1.15rem;
+            line-height: 1.7;
         }
 
         .about-image {
             position: relative;
-            border-radius: 12px;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.12);
         }
 
-        /* Heavy blur on provided image to hide UI/text overlays */
         .about-image-inner {
             width: 100%;
-            height: 500px;
+            height: 550px;
             background-image: url('Screenshot_20260324_170219.jpg');
             background-size: cover;
             background-position: center;
@@ -286,16 +317,84 @@
         .about-image-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, rgba(42, 36, 31, 0.8), rgba(42, 36, 31, 0.4));
+            background: linear-gradient(to top, rgba(42, 36, 31, 0.85), rgba(42, 36, 31, 0.3));
             display: flex;
             align-items: flex-end;
-            padding: 2rem;
+            padding: 2.5rem;
         }
 
         .about-image-overlay h3 {
             color: white;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             margin: 0;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        /* How It Works Section */
+        .bg-light-alt {
+            background-color: #F4EFE9;
+        }
+
+        .how-it-works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .step-card {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .step-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--accent);
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.06);
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: rgba(166, 123, 91, 0.1);
+            color: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            font-family: var(--font-heading);
+            margin: 0 auto 1.5rem;
+            border: 2px solid var(--accent);
+        }
+
+        .step-card h3 {
+            font-family: var(--font-body);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--primary-dark);
+        }
+
+        .step-card p {
+            color: var(--text-muted);
+            font-size: 1rem;
         }
 
         /* Workshops Section */
@@ -313,97 +412,232 @@
             color: rgba(255,255,255,0.7);
         }
 
+        /* Next Session Banner */
+        .session-banner {
+            background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+            color: white;
+            padding: 16px 30px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 500;
+            font-size: 1.1rem;
+            margin: 0 auto 4rem;
+            max-width: 700px;
+            box-shadow: 0 10px 25px rgba(166, 123, 91, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            letter-spacing: 0.5px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .session-banner i {
+            font-size: 1.3rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
         .workshop-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            max-width: 1250px;
             margin: 0 auto;
         }
 
         .workshop-card {
             background: var(--primary-light);
-            border-radius: 12px;
+            border-radius: 14px;
             overflow: hidden;
             transition: var(--transition);
             color: var(--text-main);
+            display: flex;
+            flex-direction: column;
         }
 
         .workshop-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
         }
 
         .card-img {
-            height: 220px;
+            height: 240px;
             background-color: #E6D5C3;
             background-size: cover;
             background-position: center;
         }
 
-        /* Premium Placeholder Images for Workshops to look 20k+ */
         .img-pottery { background-image: url('https://images.unsplash.com/photo-1610701596007-11502861dcfa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); }
         .img-painting { background-image: url('https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); }
         .img-kids { background-image: url('https://images.unsplash.com/photo-1513364776144-60967b0f800f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); }
         .img-weekend { background-image: url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); }
 
         .card-content {
-            padding: 1.5rem;
+            padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Scarcity Tag */
+        .scarcity-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(217, 119, 87, 0.12);
+            color: var(--scarcity-color);
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+            width: fit-content;
+            border: 1px solid rgba(217, 119, 87, 0.2);
         }
 
         .card-content h3 {
-            font-size: 1.4rem;
-            margin-bottom: 0.5rem;
+            font-size: 1.6rem;
+            margin-bottom: 0.8rem;
         }
 
         .card-content p {
             color: var(--text-muted);
-            margin-bottom: 1.5rem;
-            font-size: 0.95rem;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+            flex-grow: 1;
         }
 
         .card-footer {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-top: 1px solid rgba(0,0,0,0.05);
-            padding-top: 1.5rem;
+            border-top: 1px solid rgba(0,0,0,0.06);
+            padding-top: 1.8rem;
         }
 
         .price {
-            font-weight: 600;
-            font-size: 1.2rem;
-            color: var(--accent);
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: var(--primary-dark);
+        }
+
+        .workshop-card .btn-whatsapp {
+            padding: 10px 20px;
+            font-size: 0.95rem;
         }
 
         /* Features Section */
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
+            gap: 3.5rem;
             max-width: 1200px;
             margin: 0 auto;
             text-align: center;
         }
 
         .feature-icon {
-            width: 70px;
-            height: 70px;
+            width: 80px;
+            height: 80px;
             background: #E8DCCB;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 1.5rem;
-            font-size: 1.8rem;
+            margin: 0 auto 1.8rem;
+            font-size: 2rem;
             color: var(--accent);
+            box-shadow: 0 10px 20px rgba(166, 123, 91, 0.1);
         }
 
         .feature-item h3 {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
+            font-size: 1.4rem;
         }
 
         .feature-item p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        /* Testimonials Section */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 3rem 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        .quote-icon {
+            position: absolute;
+            top: 2rem;
+            right: 2.5rem;
+            font-size: 4rem;
+            color: rgba(166, 123, 91, 0.15);
+            line-height: 1;
+            font-family: serif;
+        }
+
+        .stars {
+            color: #FBBF24;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+        }
+
+        .review-text {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            font-style: italic;
+            margin-bottom: 2rem;
+            color: var(--primary-dark);
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+
+        .reviewer {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .reviewer-avatar {
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .reviewer-info h4 {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            margin-bottom: 2px;
+        }
+
+        .reviewer-info span {
+            font-size: 0.85rem;
             color: var(--text-muted);
         }
 
@@ -411,70 +645,90 @@
         .locations-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            max-width: 1000px;
-            margin: 0 auto 3rem;
+            gap: 2.5rem;
+            max-width: 1050px;
+            margin: 0 auto 3.5rem;
         }
 
         .location-card {
             background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
             text-align: center;
-            border-bottom: 3px solid var(--accent);
+            border-bottom: 4px solid var(--accent);
+            transition: var(--transition);
+        }
+
+        .location-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
         }
 
         .location-card i {
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: var(--accent);
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .location-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
         }
 
         .map-placeholder {
-            max-width: 1000px;
+            max-width: 1050px;
             margin: 0 auto;
-            height: 350px;
+            height: 400px;
             background: #EAE5DE;
-            border-radius: 12px;
+            border-radius: 16px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             color: var(--text-muted);
-            border: 1px dashed #C8BCAF;
+            border: 2px dashed #C8BCAF;
         }
 
         .map-placeholder i {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
             color: #C8BCAF;
         }
 
         /* CTA Section */
         .cta-section {
-            background: linear-gradient(rgba(42, 36, 31, 0.9), rgba(42, 36, 31, 0.95)), url('Screenshot_20260324_170017.jpg') center/cover;
+            background: linear-gradient(rgba(35, 25, 20, 0.92), rgba(35, 25, 20, 0.96)), url('Screenshot_20260324_170017.jpg') center/cover;
             text-align: center;
             color: white;
+            padding: 8rem 5%;
         }
 
         .cta-section h2 {
             color: white;
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 1.5rem;
         }
 
         .cta-section p {
-            font-size: 1.2rem;
-            margin-bottom: 2.5rem;
-            color: rgba(255,255,255,0.8);
+            font-size: 1.25rem;
+            margin-bottom: 3rem;
+            color: rgba(255,255,255,0.85);
+            max-width: 600px;
+            margin-inline: auto;
+        }
+
+        .cta-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         /* Footer */
         footer {
             background: #1A1613;
             color: white;
-            padding: 4rem 5% 2rem;
+            padding: 5rem 5% 2rem;
             text-align: center;
         }
 
@@ -482,60 +736,62 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 1.5rem;
-            margin-bottom: 3rem;
+            gap: 2rem;
+            margin-bottom: 4rem;
         }
 
         .footer-logo {
             font-family: var(--font-heading);
-            font-size: 2rem;
+            font-size: 2.5rem;
             font-weight: 700;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             color: white;
         }
 
         .social-links {
             display: flex;
-            gap: 1rem;
+            gap: 1.2rem;
         }
 
         .social-links a {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
-            background: rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.08);
             color: white;
             text-decoration: none;
             transition: var(--transition);
+            font-size: 1.2rem;
         }
 
         .social-links a:hover {
             background: var(--accent);
+            transform: translateY(-3px);
         }
 
         .footer-info {
             display: flex;
-            gap: 2rem;
+            gap: 3rem;
             justify-content: center;
             flex-wrap: wrap;
-            color: #A0A0A0;
-            font-size: 0.95rem;
+            color: #B0B0B0;
+            font-size: 1.05rem;
         }
 
         .footer-info span {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
 
         .footer-bottom {
             border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 2rem;
-            color: #666;
-            font-size: 0.85rem;
+            padding-top: 2.5rem;
+            color: #777;
+            font-size: 0.9rem;
         }
 
         /* Animations */
@@ -545,10 +801,11 @@
         }
 
         /* Responsive */
-        @media (max-width: 900px) {
-            .hero h1 { font-size: 3rem; }
-            .about-grid { grid-template-columns: 1fr; }
-            .hero-btns { flex-direction: column; }
+        @media (max-width: 992px) {
+            .hero h1 { font-size: 3.5rem; }
+            .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .about-image-inner { height: 400px; }
+            .section-title { font-size: 2.4rem; }
         }
 
         @media (max-width: 768px) {
@@ -560,14 +817,21 @@
                 background: white;
                 flex-direction: column;
                 padding: 2rem 0;
-                box-shadow: 0 10px 10px rgba(0,0,0,0.05);
+                box-shadow: 0 10px 15px rgba(0,0,0,0.05);
                 display: none;
             }
             .nav-links.active { display: flex; }
             .mobile-menu-btn { display: block; }
-            .hero h1 { font-size: 2.5rem; }
+            
+            .hero h1 { font-size: 2.8rem; }
+            .hero-btns { flex-direction: column; width: 100%; align-items: center; }
+            .hero-btns .btn { width: 100%; max-width: 300px; }
+            
             .locations-grid { grid-template-columns: 1fr; }
-            .cta-section h2 { font-size: 2rem; }
+            .cta-section h2 { font-size: 2.4rem; }
+            
+            .session-banner { font-size: 0.95rem; padding: 12px 20px; flex-direction: column; gap: 5px; }
+            .footer-info { gap: 1.5rem; flex-direction: column; }
         }
     </style>
 </head>
@@ -577,10 +841,10 @@
         <a href="#" class="logo">tāttv</a>
         <div class="nav-links" id="navLinks">
             <a href="#about" onclick="toggleMenu()">About</a>
+            <a href="#how-it-works" onclick="toggleMenu()">How it Works</a>
             <a href="#workshops" onclick="toggleMenu()">Workshops</a>
-            <a href="#features" onclick="toggleMenu()">Why Us</a>
             <a href="#locations" onclick="toggleMenu()">Locations</a>
-            <a href="https://wa.me/917880001248?text=Hi,%20I%20want%20to%20know%20more%20about%20Tattv%20Art%20Cafe" class="btn btn-primary" style="padding: 8px 16px;">Contact Us</a>
+            <a href="https://wa.me/917880001248?text=Hi,%20I%20want%20to%20know%20more%20about%20Tattv%20Art%20Cafe" class="btn btn-primary" style="padding: 10px 20px;">Contact Us</a>
         </div>
         <i class="fas fa-bars mobile-menu-btn" onclick="toggleMenu()"></i>
     </nav>
@@ -594,12 +858,15 @@
                 Rated 4.8 by 250+ people in Bhopal
             </div>
             <h1>Where Art Meets Experience</h1>
-            <p>Workshops, pottery, painting & café — all in one creative space.</p>
+            <p>Workshops, pottery, painting & café — all in one creative space designed to spark your imagination.</p>
             <div class="hero-btns">
                 <a href="#workshops" class="btn btn-primary">Explore Workshops</a>
-                <a href="https://wa.me/917880001248?text=Hi,%20I%20would%20like%20to%20book%20a%20workshop%20at%20Tattv%20Art%20Cafe." target="_blank" class="btn btn-outline">
-                    <i class="fab fa-whatsapp"></i> Book on WhatsApp
-                </a>
+                <div class="hero-cta-wrapper">
+                    <a href="https://wa.me/917880001248?text=Hi,%20I%20would%20like%20to%20book%20a%20workshop%20at%20Tattv%20Art%20Cafe." target="_blank" class="btn btn-outline">
+                        <i class="fab fa-whatsapp" style="font-size: 1.2rem; color: #25D366;"></i> Book Your Spot on WhatsApp
+                    </a>
+                    <span class="micro-text"><i class="fas fa-bolt"></i> Takes less than 30 seconds to book</span>
+                </div>
             </div>
         </div>
     </header>
@@ -610,7 +877,7 @@
                 <h2>A Sanctuary for Creativity & Connection</h2>
                 <p>At Tattv Art Cafe & Library, we believe that everyone has an artist inside them waiting to be discovered. We aren't just a place to grab coffee; we are Bhopal's premier destination for creative expression.</p>
                 <p>Whether you're molding clay at our pottery wheels, brushing colors onto a fresh canvas, or getting lost in a good book from our library, our space is designed to inspire. We host guided workshops that turn ordinary afternoons into unforgettable artistic journeys.</p>
-                <a href="#workshops" class="btn btn-primary" style="margin-top: 1rem;">View Our Sessions</a>
+                <a href="#workshops" class="btn btn-primary" style="margin-top: 1.5rem;">View Our Sessions</a>
             </div>
             <div class="about-image">
                 <div class="about-image-inner"></div>
@@ -621,20 +888,51 @@
         </div>
     </section>
 
+    <section id="how-it-works" class="bg-light-alt">
+        <h2 class="section-title">How to Secure Your Seat</h2>
+        <p class="section-subtitle">Our workshops are intimate and exclusive. Booking your spot is quick and simple.</p>
+
+        <div class="how-it-works-grid">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <h3>Choose your workshop</h3>
+                <p>Browse our signature sessions below. Pick between pottery, painting, or our special weekend events.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <h3>Message on WhatsApp</h3>
+                <p>Click any booking button. It will open WhatsApp with a pre-filled message directly to our team.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <h3>Confirm your seat</h3>
+                <p>We'll reply instantly with payment details. Complete the transaction and your creative experience is locked in!</p>
+            </div>
+        </div>
+    </section>
+
     <section id="workshops" class="bg-dark">
         <h2 class="section-title">Our Signature Workshops</h2>
         <p class="section-subtitle">Join our guided, beginner-friendly sessions. All materials provided. Just bring your enthusiasm.</p>
+
+        <div class="session-banner">
+            <i class="fas fa-calendar-alt"></i>
+            Next Pottery Workshop: Sunday, 11:00 AM
+        </div>
 
         <div class="workshop-grid">
             <div class="workshop-card">
                 <div class="card-img img-pottery"></div>
                 <div class="card-content">
+                    <div class="scarcity-tag">
+                        <i class="fas fa-bolt"></i> Limited seats per session (6–8 people only)
+                    </div>
                     <h3>Pottery Workshop</h3>
                     <p>Experience the therapeutic art of wheel throwing and hand-building. Perfect for beginners looking to craft their own ceramics.</p>
                     <div class="card-footer">
                         <span class="price">₹999</span>
-                        <a href="https://wa.me/917880001248?text=Hi,%20I%20want%20to%20book%20the%20Pottery%20Workshop%20at%20Tattv%20Art%20Cafe" target="_blank" class="btn btn-whatsapp" style="padding: 8px 16px; font-size: 0.9rem;">
-                            <i class="fab fa-whatsapp"></i> Book Now
+                        <a href="https://wa.me/917880001248?text=Hi,%20I%20want%20to%20book%20the%20Pottery%20Workshop%20at%20Tattv%20Art%20Cafe" target="_blank" class="btn btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i> Book Your Spot on WhatsApp
                         </a>
                     </div>
                 </div>
@@ -643,12 +941,15 @@
             <div class="workshop-card">
                 <div class="card-img img-painting"></div>
                 <div class="card-content">
+                    <div class="scarcity-tag">
+                        <i class="fas fa-bolt"></i> Limited seats per session (6–8 people only)
+                    </div>
                     <h3>Painting Workshop</h3>
                     <p>Sip your favorite coffee while our expert artists guide you stroke-by-stroke to create a beautiful canvas masterpiece.</p>
                     <div class="card-footer">
                         <span class="price">₹999</span>
-                        <a href="https://wa.me/917880001248?text=Hi,%20I%20want%20to%20book%20the%20Painting%20Workshop%20at%20Tattv%20Art%20Cafe" target="_blank" class="btn btn-whatsapp" style="padding: 8px 16px; font-size: 0.9rem;">
-                            <i class="fab fa-whatsapp"></i> Book Now
+                        <a href="https://wa.me/917880001248?text=Hi,%20I%20want%20to%20book%20the%20Painting%20Workshop%20at%20Tattv%20Art%20Cafe" target="_blank" class="btn btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i> Book Your Spot on WhatsApp
                         </a>
                     </div>
                 </div>
@@ -657,12 +958,15 @@
             <div class="workshop-card">
                 <div class="card-img img-kids"></div>
                 <div class="card-content">
+                    <div class="scarcity-tag">
+                        <i class="fas fa-bolt"></i> Limited seats per session (6–8 people only)
+                    </div>
                     <h3>Kids Art Sessions</h3>
                     <p>A fun, messy, and highly creative environment for young minds to explore colors, textures, and imagination.</p>
                     <div class="card-footer">
                         <span class="price">₹799</span>
-                        <a href="https://wa.me/917880001248?text=Hi,%20I%20want%20to%20book%20the%20Kids%20Art%20Session%20at%20Tattv%20Art%20Cafe" target="_blank" class="btn btn-whatsapp" style="padding: 8px 16px; font-size: 0.9rem;">
-                            <i class="fab fa-whatsapp"></i> Book Now
+                        <a href="https://wa.me/917880001248?text=Hi,%20I%20want%20to%20book%20the%20Kids%20Art%20Session%20at%20Tattv%20Art%20Cafe" target="_blank" class="btn btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i> Book Your Spot on WhatsApp
                         </a>
                     </div>
                 </div>
@@ -671,12 +975,15 @@
             <div class="workshop-card">
                 <div class="card-img img-weekend"></div>
                 <div class="card-content">
+                    <div class="scarcity-tag">
+                        <i class="fas fa-bolt"></i> Limited seats per session (6–8 people only)
+                    </div>
                     <h3>Weekend Jam & Events</h3>
                     <p>Acoustic music nights, poetry slams, and community gatherings. Unwind with good vibes and heartfelt talks.</p>
                     <div class="card-footer">
                         <span class="price">Varies</span>
-                        <a href="https://wa.me/917880001248?text=Hi,%20I%20want%20to%20know%20about%20upcoming%20Weekend%20Events%20at%20Tattv%20Art%20Cafe" target="_blank" class="btn btn-whatsapp" style="padding: 8px 16px; font-size: 0.9rem;">
-                            <i class="fab fa-whatsapp"></i> Inquire
+                        <a href="https://wa.me/917880001248?text=Hi,%20I%20want%20to%20know%20about%20upcoming%20Weekend%20Events%20at%20Tattv%20Art%20Cafe" target="_blank" class="btn btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i> Book Your Spot on WhatsApp
                         </a>
                     </div>
                 </div>
@@ -686,7 +993,7 @@
 
     <section id="features">
         <h2 class="section-title">Why Bhopal Loves Tattv</h2>
-        <p class="section-subtitle">More than just a cafe, we are an experience.</p>
+        <p class="section-subtitle">More than just a cafe, we are an experience designed to enrich your soul.</p>
 
         <div class="features-grid">
             <div class="feature-item">
@@ -712,6 +1019,52 @@
         </div>
     </section>
 
+    <section id="testimonials" class="bg-light-alt">
+        <h2 class="section-title">Hear From Our Community</h2>
+        <p class="section-subtitle">Join hundreds of happy creators who have experienced the magic of Tattv.</p>
+
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="quote-icon">"</div>
+                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="review-text">Amazing experience, loved the pottery session!</p>
+                <div class="reviewer">
+                    <div class="reviewer-avatar">P</div>
+                    <div class="reviewer-info">
+                        <h4>Priya Sharma</h4>
+                        <span>Workshop Attendee</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="quote-icon">"</div>
+                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="review-text">Perfect place for a creative weekend in Bhopal.</p>
+                <div class="reviewer">
+                    <div class="reviewer-avatar">R</div>
+                    <div class="reviewer-info">
+                        <h4>Rahul Verma</h4>
+                        <span>Weekend Jam Guest</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="quote-icon">"</div>
+                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="review-text">Very calming and creative vibe, highly recommend.</p>
+                <div class="reviewer">
+                    <div class="reviewer-avatar">A</div>
+                    <div class="reviewer-info">
+                        <h4>Anjali Desai</h4>
+                        <span>Painting Workshop</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="locations" style="background: white;">
         <h2 class="section-title">Find Your Creative Space</h2>
         <p class="section-subtitle">We are proudly serving the artistic community at two locations in Bhopal.</p>
@@ -720,12 +1073,12 @@
             <div class="location-card">
                 <i class="fas fa-map-marker-alt"></i>
                 <h3>Kerwa Dam Branch</h3>
-                <p style="color: var(--text-muted); margin-top: 0.5rem;">Kerwa Dam Road, Kajlas<br>Bhopal, Madhya Pradesh</p>
+                <p style="color: var(--text-muted); margin-top: 0.8rem; font-size: 1.05rem;">Kerwa Dam Road, Kajlas<br>Bhopal, Madhya Pradesh</p>
             </div>
             <div class="location-card">
                 <i class="fas fa-map-marker-alt"></i>
                 <h3>Lalghati Branch</h3>
-                <p style="color: var(--text-muted); margin-top: 0.5rem;">Lalghati Area<br>Bhopal, Madhya Pradesh</p>
+                <p style="color: var(--text-muted); margin-top: 0.8rem; font-size: 1.05rem;">Lalghati Area<br>Bhopal, Madhya Pradesh</p>
             </div>
         </div>
 
@@ -738,10 +1091,13 @@
 
     <section class="cta-section">
         <h2>Book Your Workshop Today</h2>
-        <p>Spaces fill up fast! Reserve your spot via WhatsApp in just 2 minutes.</p>
-        <a href="https://wa.me/917880001248?text=Hi,%20I%20want%20to%20book%20a%20workshop%20at%20Tattv%20Art%20Cafe" target="_blank" class="btn btn-whatsapp" style="font-size: 1.2rem; padding: 15px 35px;">
-            <i class="fab fa-whatsapp" style="font-size: 1.5rem;"></i> Reserve on WhatsApp
-        </a>
+        <p>Spaces fill up fast due to our limited seating. Reserve your spot via WhatsApp to secure your creative journey.</p>
+        <div class="cta-wrapper">
+            <a href="https://wa.me/917880001248?text=Hi,%20I%20want%20to%20book%20a%20workshop%20at%20Tattv%20Art%20Cafe" target="_blank" class="btn btn-whatsapp" style="font-size: 1.25rem; padding: 18px 40px; border-radius: 8px;">
+                <i class="fab fa-whatsapp" style="font-size: 1.6rem;"></i> Reserve Your Seat on WhatsApp
+            </a>
+            <span class="micro-text"><i class="fas fa-bolt"></i> Takes less than 30 seconds to book</span>
+        </div>
     </section>
 
     <footer>
@@ -769,4 +1125,3 @@
     </script>
 </body>
 </html>
-
